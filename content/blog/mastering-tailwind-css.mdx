@@ -1,0 +1,80 @@
+---
+title: Mastering Tailwind CSS
+date: '2023-05-20'
+description: >-
+  Learn how to create beautiful, responsive designs with Tailwind CSS
+  utility-first approach.
+categories:
+  - CSS
+  - Web Design
+---
+
+# Mastering Tailwind CSS
+
+Tailwind CSS is a utility-first CSS framework that allows you to build custom designs without leaving your HTML. Let's explore how to make the most of it.
+
+## Why Tailwind?
+
+- **Utility-First**: Build complex components from a constrained set of primitive utilities
+- **Responsive Design**: Easily create responsive layouts with intuitive breakpoint prefixes
+- **Customization**: Tailor the framework to your design system with simple configuration
+
+## Basic Usage
+
+Here's a simple example of a card component using Tailwind CSS:
+
+```html
+<div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+  <div class="md:flex">
+    <div class="md:shrink-0">
+      <img class="h-48 w-full object-cover md:h-full md:w-48" src="/img/card-image.jpg" alt="Modern building architecture">
+    </div>
+    <div class="p-8">
+      <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Company retreats</div>
+      <a href="#" class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Incredible accommodation for your team</a>
+      <p class="mt-2 text-slate-500">Looking to take your team away on a retreat to enjoy awesome food and take in some sunshine?</p>
+    </div>
+  </div>
+</div>
+```
+
+## Advanced Techniques
+
+### Custom Utilities
+
+You can extend Tailwind with your own utilities:
+
+```js
+// tailwind.config.js
+module.exports = {
+  theme: {
+    extend: {
+      spacing: {
+        '128': '32rem',
+      }
+    }
+  }
+}
+```
+
+### Component Extraction
+
+For repeating patterns, consider extracting components:
+
+```jsx
+function Button({ children, primary }) {
+  const baseClasses = "font-bold py-2 px-4 rounded";
+  const variantClasses = primary 
+    ? "bg-blue-500 hover:bg-blue-700 text-white" 
+    : "bg-gray-200 hover:bg-gray-300 text-gray-800";
+    
+  return (
+    <button className={`${baseClasses} ${variantClasses}`}>
+      {children}
+    </button>
+  );
+}
+```
+
+Start building beautiful interfaces with Tailwind CSS!
+      
